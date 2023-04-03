@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointment_date: 2023-04-02
+  user: one
+  car: one
+
+two:
+  appointment_date: 2023-04-02
+  user: two
+  car: two
