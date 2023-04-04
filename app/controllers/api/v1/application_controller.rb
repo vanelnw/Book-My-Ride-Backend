@@ -1,4 +1,4 @@
-require_relative './json_web_token.rb'
+require_relative './json_web_token'
 
 class Api::V1::ApplicationController < ActionController::API
   before_action :authenticate_request
@@ -12,7 +12,7 @@ class Api::V1::ApplicationController < ActionController::API
 
   def authenticate_request
     header = request.headers['Authorization']
-    header = header.split(" ").last if header
+    header = header.split.last if header
     decoded = JsonWebToken.jwt_decode(header)
     @current_user = User.find(decoded[:user_id])
   end
