@@ -1,4 +1,4 @@
-class CarsController < ApplicationController
+class Api::V1::CarsController < Api::V1::ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
 
   # GET /cars or /cars.json
@@ -7,7 +7,9 @@ class CarsController < ApplicationController
   end
 
   # GET /cars/1 or /cars/1.json
-  def show; end
+  def show
+    render json: @car
+  end
 
   # GET /cars/new
   def new
