@@ -1,5 +1,6 @@
-class CarsController < ApplicationController
+class Api::V1::CarsController < Api::V1::ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
+  before_action :authenticate_request
 
   # GET /cars or /cars.json
   def index
@@ -20,15 +21,12 @@ class CarsController < ApplicationController
   # POST /cars or /cars.json
   def create
     @car = Car.new(car_params)
+    @car.user_id = @current_user.id
 
-    respond_to do |format|
-      if @car.save
-        format.html { redirect_to car_url(@car), notice: 'Car was successfully created.' }
-        format.json { render :show, status: :created, location: @car }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
+    if @car.save
+      render json: { car: @car, message: 'Car added successfully' }, status: :created
+    else
+      render json: { message: @car.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end
   end
 
@@ -64,6 +62,6 @@ class CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    params.require(:car).permit(:make, :model, :year, :price)
+    params.require(:car).permit(:make, :model, :year, :price, :image)
   end
 end
