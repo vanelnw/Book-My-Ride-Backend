@@ -1,5 +1,6 @@
 class Api::V1::CarsController < Api::V1::ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
+  before_action :authenticate_request
 
   # GET /cars or /cars.json
   def index
