@@ -12,3 +12,13 @@
 # @car3 = Car.create(make: 'Mustang Model X', model: 'mustang-ecoboost', year: 'the fastest car ever made', price: 'https://images.unsplash.com/photo-1547744152-14d985cb937f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
 # @car4 = Car.create(make: 'Tesla Model Z', model: 'sportscar', year: 'the fastest sportscar in the market', price: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=8000')
 # Reservation.create(date: '04-05-2023', time: '06-05-2023', user_id: @user1, car_id: @car1)
+
+{
+  "cars": {
+        "make": "Toyota",
+        "model": "Camry",
+        "year":  2020,
+        "price": 25000,
+        "image": "https://example.com/image.png",
+      }
+  }
