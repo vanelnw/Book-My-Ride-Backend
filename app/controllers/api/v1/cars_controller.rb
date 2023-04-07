@@ -8,7 +8,9 @@ class Api::V1::CarsController < Api::V1::ApplicationController
   end
 
   # GET /cars/1 or /cars/1.json
-  def show; end
+  def show
+    render json: @car
+  end
 
   # GET /cars/new
   def new

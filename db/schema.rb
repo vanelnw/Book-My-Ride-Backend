@@ -27,12 +27,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_114724) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
+    t.date "reservation_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
+    t.date "due_date"
     t.index ["car_id"], name: "index_reservations_on_car_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
