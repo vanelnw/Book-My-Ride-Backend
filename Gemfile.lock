@@ -164,6 +164,10 @@ GEM
       activesupport (= 7.0.4.3)
       bundler (>= 1.15.0)
       railties (= 7.0.4.3)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -199,20 +203,6 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
-    rswag (2.8.0)
-      rswag-api (= 2.8.0)
-      rswag-specs (= 2.8.0)
-      rswag-ui (= 2.8.0)
-    rswag-api (2.8.0)
-      railties (>= 3.1, < 7.1)
-    rswag-specs (2.8.0)
-      activesupport (>= 3.1, < 7.1)
-      json-schema (>= 2.2, < 4.0)
-      railties (>= 3.1, < 7.1)
-      rspec-core (>= 2.14)
-    rswag-ui (2.8.0)
-      actionpack (>= 3.1, < 7.1)
-      railties (>= 3.1, < 7.1)
     rubocop (1.48.1)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -284,9 +274,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
+  rails-controller-testing
   rspec-rails
-  rswag
-  rswag-ui
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
