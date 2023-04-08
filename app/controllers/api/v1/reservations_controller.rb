@@ -1,5 +1,6 @@
-class ReservationsController < ApplicationController
+class Api::V1::ReservationsController < Api::V1::ApplicationController
   before_action :set_reservation, only: %i[show edit update destroy]
+  before_action :authenticate_request
 
   # GET /reservations or /reservations.json
   def index
@@ -20,15 +21,12 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = @current_user.id
 
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
+    if @reservation.save
+      render json: { reservation: @reservation, message: 'Car reserved successfully' }, status: :created
+    else
+      render json: { message: @reservation.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end
   end
 
@@ -64,6 +62,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:reservation_date, :appointment_id)
+    params.require(:reservation).permit(:reservation_date, :due_date, :car_id)
   end
 end
