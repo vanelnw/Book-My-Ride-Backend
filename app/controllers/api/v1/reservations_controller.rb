@@ -5,6 +5,7 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
   # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
+    render json: { reservations: @reservations}
   end
 
   # GET /reservations/1 or /reservations/1.json
