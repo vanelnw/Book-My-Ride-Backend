@@ -46,12 +46,13 @@ class Api::V1::CarsController < Api::V1::ApplicationController
   end
 
   # DELETE /cars/1 or /cars/1.json
-  def destroy
-    @car.destroy
 
-    respond_to do |format|
-      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
-      format.json { head :no_content }
+  def destroy
+    @car = Car.find(params[:id])
+    if @car.destroy
+      render json: { message: "Car successfully deleted" }, status: :ok
+    else
+      render json: { message: @car.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end
   end
 
