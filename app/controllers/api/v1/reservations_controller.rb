@@ -26,7 +26,9 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
     if @reservation.save
       render json: { reservation: @reservation, message: 'Car reserved successfully' }, status: :created
     else
-      render json: { message: @reservation.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      render json: {
+        message: @reservation.errors.full_messages.join(', ')
+      }, status: :unprocessable_entity
     end
   end
 
