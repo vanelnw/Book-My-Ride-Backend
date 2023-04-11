@@ -9,11 +9,6 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
                                                                    car_price]) }
   end
 
-  # def index
-  #   @reservations = Reservation.includes(car: [:image]).all
-  #   render json: { reservations: @reservations.as_json(methods: [:car_make, :car_image]) }
-  # end
-
   # GET /reservations/1 or /reservations/1.json
   def show; end
 
