@@ -24,7 +24,7 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
     @reservation.user_id = @current_user.id
 
     if @reservation.save
-      render json: { reservation: @reservation, message: 'Car reserved successfully' }, status: :created
+      render json: { reservation: @reservation, success: true, message: 'Car reserved successfully' }, status: :created
     else
       render json: {
         message: @reservation.errors.full_messages.join(', ')
