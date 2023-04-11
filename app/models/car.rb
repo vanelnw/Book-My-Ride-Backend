@@ -1,5 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :user
+  has_many :reservations, foreign_key: 'car_id', class_name: 'Reservation'
 
   validates :make, presence: true
   validates :model, presence: true
