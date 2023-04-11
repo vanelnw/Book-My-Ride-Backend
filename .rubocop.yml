@@ -1,12 +1,21 @@
 AllCops:
   NewCops: enable
   Exclude:
+<<<<<<< HEAD
     - 'db/**/*'
     - 'bin/*'
     - 'config/**/*'
     - 'Guardfile'
     - 'Rakefile'
     - 'node_modules/**/*'
+=======
+    - "db/**/*"
+    - "bin/*" 
+    - "config/**/*"
+    - "Guardfile"
+    - "Rakefile"
+    - "node_modules/**/*"
+>>>>>>> 2695924b38517708393a29a93eb60140f06665cf
 
   DisplayCopNames: true
 
@@ -57,4 +66,8 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
+<<<<<<< HEAD
   Enabled: false
+=======
+  Enabled: false
+>>>>>>> 2695924b38517708393a29a93eb60140f06665cf
