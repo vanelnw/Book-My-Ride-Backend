@@ -2,7 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :car
 
-  validates :reservation_date, presence: true, numericality: { greater_than_or_equal_to: Date.today.year }
+  validates :reservation_date, presence: true
   validates :due_date, presence: true
 
   def car_make
