@@ -1,6 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::CarsController, type: :request do
+  describe "GET /api/v1/cars" do
+    let(:user) { User.create(name: "user1", email: "user1@example.com", password_digest: "password") }
+    let(:payload) { { user_id: user.id } }
+    let(:token) { JWT.encode(payload, Rails.application.secret_key_base) }
+    let(:headers) { { "Authorization" => "Bearer #{token}" } }
+    let(:car1) { Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0") }
+    let(:car2) { Car.create(make: "Chevrolet", model: "Camaro", year: 2021, price: 45000, user_id: user.id, image: "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2021/performance/camaro/mov/01-images/2021-camaro-mov-01.jpg") }
+  
+    before do
+      car1
+      car2
+      get '/api/v1/cars', headers: headers
+    end
+  
+    it 'returns a success response' do
+      expect(response).to have_http_status(:ok)
+    end
+  
+    it 'returns all cars' do
+      json_response = JSON.parse(response.body)
+      expect(json_response.size).to eq(2)
+    end
+  end  
+
   describe "GET /api/v1/cars/:id" do
     it "renders a JSON response with the car" do
       user = User.create(name: "user1", email: "user1@example.com", password_digest: "password")
