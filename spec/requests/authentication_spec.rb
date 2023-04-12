@@ -16,7 +16,7 @@ RSpec.describe Api::V1::AuthenticationController, type: :request do
 
     it 'returns a success message' do
       json_response = JSON.parse(response.body)
-      expect(json_response['message']).to eq('Registered successfully')
+      expect(json_response['message']).to eq('Registered successfully!')
     end
 
     it 'returns a status code 201' do

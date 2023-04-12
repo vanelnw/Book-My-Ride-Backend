@@ -23,7 +23,7 @@ default: &default
   host: localhost
   port: 5432
   username: postgres
-  password: 1234
+  password: unixMicro1
 development:
   <<: *default
   database: Appointment_Capstone_Backend_development

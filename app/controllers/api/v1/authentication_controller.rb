@@ -5,7 +5,7 @@ class Api::V1::AuthenticationController < Api::V1::ApplicationController
     @user = User.find_by_email(params[:email])
     if @user&.authenticate(params[:password])
       token = JsonWebToken.jwt_encode(user_id: @user.id)
-      render json: { user: @user, token:, message: 'Logged in successfully' }, status: :ok
+      render json: { user: @user, token:, message: 'Logged in successfully!' }, status: :ok
     else
       render json: { token: 'unauthorized', message: 'Invalid email or password!' }, status: :unauthorized
     end
@@ -13,20 +13,20 @@ class Api::V1::AuthenticationController < Api::V1::ApplicationController
 
   def logout
     session.delete(:user_id)
-    render json: { message: 'Logged out successfully' }
+    render json: { message: 'Logged out successfully!' }
   end
 
   def register
     @user = User.find_by(email: params[:email])
 
     if @user.present?
-      render json: { message: 'Email already exists' }, status: :unprocessable_entity
+      render json: { message: 'Email already exists!' }, status: :unprocessable_entity
     else
       @user = User.new(user_params)
 
       if @user.save
         token = JsonWebToken.jwt_encode(user_id: @user.id)
-        render json: { user: @user, token:, message: 'Registered successfully' }, status: :created
+        render json: { user: @user, token:, message: 'Registered successfully!' }, status: :created
       else
         render json: { message: @user.errors.full_messages.join(', ') }, status: :unprocessable_entity
       end

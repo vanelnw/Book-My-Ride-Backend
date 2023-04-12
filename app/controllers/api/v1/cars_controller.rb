@@ -26,7 +26,7 @@ class Api::V1::CarsController < Api::V1::ApplicationController
     @car.user_id = @current_user.id
 
     if @car.save
-      render json: { car: @car, message: 'Car added successfully' }, status: :created
+      render json: { car: @car, message: 'Car added successfully!' }, status: :created
     else
       render json: { message: @car.errors.full_messages.join(', ') }, status: :unprocessable_entity
     end

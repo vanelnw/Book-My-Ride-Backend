@@ -1,6 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::ReservationsController, type: :request do
+  describe "GET /api/v1/reservations" do
+    let(:user) { User.create(name: "user1", email: "user1@example.com", password_digest: "password") }
+    let(:payload) { { user_id: user.id } }
+    let(:token) { JWT.encode(payload, Rails.application.secret_key_base) }
+    let(:headers) { { "Authorization" => "Bearer #{token}" } }
+    let(:car) { Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0") }
+    let(:reservation) { Reservation.create(reservation_date: "2023-04-10", due_date: "2023-04-15", user_id: user.id, car_id: car.id) }
+  
+    before { get '/api/v1/reservations', headers: headers }
+  
+    it 'returns a success response' do
+      expect(response).to have_http_status(:ok)
+    end
+  
+    it 'returns all reservations' do
+      json_response = JSON.parse(response.body)
+      expect(json_response.size).to eq(1)
+    end  
+  end
+
   describe 'POST /api/v1/reservations' do
     let(:user) { User.create(name: "user1", email: "user1@example.com", password_digest: "password") }
     let(:car) { Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0") }
@@ -22,7 +42,7 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
 
       it 'returns a success message' do
         json_response = JSON.parse(response.body)
-        expect(json_response['message']).to eq('Car reserved successfully')
+        expect(json_response['message']).to eq('Car reserved successfully!')
       end
 
       it 'returns a status code 201' do

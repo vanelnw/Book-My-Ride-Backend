@@ -39,12 +39,27 @@ RSpec.describe Api::V1::CarsController, type: :request do
 
       it 'returns a success message' do
         json_response = JSON.parse(response.body)
-        expect(json_response['message']).to eq('Car added successfully')
+        expect(json_response['message']).to eq('Car added successfully!')
       end
 
       it 'returns a status code 201' do
         expect(response).to have_http_status(:created)
       end
+    end
+  end
+
+  describe "DELETE /api/v1/cars/:id" do
+    let(:user) { User.create(name: "user1", email: "user1@example.com", password_digest: "password") }
+    let(:payload) { { user_id: user.id } }
+    let(:token) { JWT.encode(payload, Rails.application.secret_key_base) }
+    let(:headers) { { "Authorization" => "Bearer #{token}" } }
+  
+    let!(:car) { Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0") }
+      
+    it "deletes the car" do
+      expect {
+        delete "/api/v1/cars/#{car.id}", headers: headers
+      }.to change(Car, :count).by(-1)
     end
   end
 end
