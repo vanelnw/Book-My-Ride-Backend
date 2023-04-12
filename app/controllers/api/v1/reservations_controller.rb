@@ -6,7 +6,7 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
   def index
     @reservations = Reservation.includes(:car).all
     render json: { reservations: @reservations.as_json(methods:
-    %i[car_make car_image car_model car_year car_price]) }
+    %i[car_make car_image car_model car_year car_daily_rate]) }
   end
 
   # GET /reservations/1 or /reservations/1.json
