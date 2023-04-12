@@ -10,3 +10,4 @@ Car.create(make: "Toyota", model: "Corolla", year: 2018, price: 20000, user_id: 
 Car.create(make: "Honda", model: "Civic", year: 2019, price: 22000, user_id: 1, image: "https://images.hgmsites.net/lrg/2020-honda-civic-sport-manual-angular-front-exterior-view_100751892_l.jpg")
 # Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: 2, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0")
 # Car.create(make: "Chevrolet", model: "Camaro", year: 2019, price: 35000, user_id: 2, image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/2019_Chevrolet_Camaro_2SS_6.2L_front_3.16.19.jpg")
+Reservation.create(reservation_date: "2023-04-10", user_id: 1, car_id: 1, due_date: "2023-04-12")
