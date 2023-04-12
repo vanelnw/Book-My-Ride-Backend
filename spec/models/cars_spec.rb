@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Car, type: :model do
   let(:user) { User.create(name: 'Test User', email: 'test@example.com', password: 'password') }
-  subject { Car.new(make: 'Ford', model: 'Fiesta', year: 2021, daily_rate: 50, user_id: user.id, image: 'car.jpg', description: 'A fun car to drive') }
+  subject do
+    Car.new(make: 'Ford', model: 'Fiesta', year: 2021, daily_rate: 50, user_id: user.id, image: 'car.jpg',
+            description: 'A fun car to drive')
+  end
 
   describe 'validations' do
     it 'is valid with valid attributes' do
