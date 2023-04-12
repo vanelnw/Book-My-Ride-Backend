@@ -6,8 +6,8 @@ RSpec.describe Api::V1::CarsController, type: :request do
     let(:payload) { { user_id: user.id } }
     let(:token) { JWT.encode(payload, Rails.application.secret_key_base) }
     let(:headers) { { "Authorization" => "Bearer #{token}" } }
-    let(:car1) { Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0") }
-    let(:car2) { Car.create(make: "Chevrolet", model: "Camaro", year: 2021, price: 45000, user_id: user.id, image: "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2021/performance/camaro/mov/01-images/2021-camaro-mov-01.jpg") }
+    let(:car1) { Car.create(make: "Ford", model: "Mustang", year: 2020, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0", daily_rate: 2000, description: 'Car for testing') }
+    let(:car2) { Car.create(make: "Chevrolet", model: "Camaro", year: 2021, user_id: user.id, image: "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2021/performance/camaro/mov/01-images/2021-camaro-mov-01.jpg", daily_rate: 2500, description: 'Car for testing') }
   
     before do
       car1
@@ -31,7 +31,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
       payload = { user_id: user.id }
       token = JWT.encode(payload, Rails.application.secret_key_base)
       headers = { "Authorization" => "Bearer #{token}" }
-      car = Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0")
+      car = Car.create(make: "Ford", model: "Mustang", year: 2020, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0", daily_rate: 2000, description: 'Car for testing')
 
       get "/api/v1/cars/#{car.id}", headers: headers
 
@@ -43,7 +43,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
 
   describe "POST /api/v1/cars/" do
     let(:user) { User.create(name: "user1", email: "user1@example.com", password_digest: "password") }
-    let(:valid_attributes) { { make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0" } }
+    let(:valid_attributes) { { make: "Ford", model: "Mustang", year: 2020, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0", daily_rate: 2000, description: 'Car for testing' } }
 
     context 'when the request is valid' do
       before do
@@ -56,9 +56,10 @@ RSpec.describe Api::V1::CarsController, type: :request do
         expect(json_response['car']['make']).to eq("Ford")
         expect(json_response['car']['model']).to eq("Mustang")
         expect(json_response['car']['year']).to eq(2020)
-        expect(json_response['car']['price']).to eq(40000)
         expect(json_response['car']['user_id']).to eq(user.id)
         expect(json_response['car']['image']).to eq("https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0")
+        expect(json_response['car']['daily_rate']).to eq(2000)
+        expect(json_response['car']['description']).to eq('Car for testing')
       end
 
       it 'returns a success message' do
@@ -78,7 +79,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
     let(:token) { JWT.encode(payload, Rails.application.secret_key_base) }
     let(:headers) { { "Authorization" => "Bearer #{token}" } }
   
-    let!(:car) { Car.create(make: "Ford", model: "Mustang", year: 2020, price: 40000, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0") }
+    let!(:car) { Car.create(make: "Ford", model: "Mustang", year: 2020, user_id: user.id, image: "https://imgd.aeplcdn.com/0x0/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg?wm=0", daily_rate: 2000, description: 'Car for testing') }
       
     it "deletes the car" do
       expect {
