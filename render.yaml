@@ -1,6 +1,5 @@
 databases:
   - name: postgres
-    databaseName: bookYourRide
     plan: free
     ipAllowList: []
 
