@@ -6,7 +6,7 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
   def index
     @reservations = Reservation.includes(:car).all
     render json: { reservations: @reservations.as_json(methods:
-    %i[car_make car_image car_model car_year car_price]) }
+    %i[car_make car_image car_model car_year car_daily_rate]) }
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -26,11 +26,11 @@ class Api::V1::ReservationsController < Api::V1::ApplicationController
     @reservation.user_id = @current_user.id
 
     if @reservation.save
-      render json: { reservation: @reservation, success: true, message: 'Car reserved successfully' }, status: :created
+      render json: { reservation: @reservation, success: true, message: 'Car reserved successfully!' },
+             status: :created
     else
-      render json: {
-        message: @reservation.errors.full_messages.join(', ')
-      }, status: :unprocessable_entity
+      render json: { success: false, message: @reservation.errors.full_messages.join(', '),
+                     status: :unprocessable_entity }
     end
   end
 
