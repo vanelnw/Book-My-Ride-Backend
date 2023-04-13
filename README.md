@@ -39,11 +39,11 @@ Collaboration team is made of 3 members:
 
 ## API Documentation <a name="api-documentation"></a>
 
-[Link to API Documentation](https://documenter.getpostman.com/view/24548009/2s93XsYS33 )
+[Link to API Documentation](https://documenter.getpostman.com/view/24548009/2s93XsYS33)
 
 ## Backend <a name="backend"></a>
 
-Frontend app can be found [here](https://github.com/vanelnw/appointment-capstone-frontend.git)
+The frontend was made with react and can be found [here] (https://github.com/vanelnw/appointment-capstone-frontend.git)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -57,9 +57,9 @@ Frontend app can be found [here](https://github.com/vanelnw/appointment-capstone
 </details>
 
 <details>
-  <summary>State Management</summary>
+  <summary>Server</summary>
   <ul>
-     <li><a href="https://redux.org/">Redux</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -72,9 +72,8 @@ Frontend app can be found [here](https://github.com/vanelnw/appointment-capstone
 
 ### Key Features <a name="key-features"></a>
 
-- **Redux state management**
-- **External API usage**
-- **User signup**
+- **Deploy application API on render**
+- **Update Api documentation with deployed url**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,16 +107,28 @@ Clone this repository to your desired folder:
 ### Install
 
 ```sh
-  cd car-rental-app
-  npm install
+  cd Appointment-Capstone-Backend
+  bundle install
 ```
 
 ### Usage
 
 To run the project, execute the following command:
 
-```sh
-  npm start
+```
+  rails db:create
+```
+
+```
+  rails db:migrate
+```
+
+```
+  rails db:seed
+```
+
+```
+  rails server
 ```
 
 ### Run tests
@@ -125,7 +136,7 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-  npm test
+  rspec
 ```
 
 ### Deployment
@@ -174,9 +185,8 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Integrate externalAPI of another booking site**
-- [ ] **It will allows users to give a review for a specific car.**
-- [ ] **Allow summary of review on a ceratin period**
+- [ ] **Integrate Admin action.**
+- [ ] **Integrate super users.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
