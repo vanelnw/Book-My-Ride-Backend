@@ -21,7 +21,7 @@ class Reservation < ApplicationRecord
     car.year
   end
 
-  def car_price
-    car.price
+  def car_daily_rate
+    car.daily_rate
   end
 end
