@@ -24,6 +24,8 @@ class Api::V1::AuthenticationController < Api::V1::ApplicationController
     else
       @user = User.new(user_params)
 
+      @user.role = 'admin' if @user.email == 'admin@gmail.com'
+
       if @user.save
         token = JsonWebToken.jwt_encode(user_id: @user.id)
         render json: { user: @user, token:, message: 'Registered successfully!' }, status: :created
@@ -36,6 +38,6 @@ class Api::V1::AuthenticationController < Api::V1::ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password)
+    params.permit(:name, :email, :password, :role)
   end
 end
