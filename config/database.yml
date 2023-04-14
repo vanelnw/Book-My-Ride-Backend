@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: Appointment_Capstone_Backend_production
-  username: Appointment_Capstone_Backend
-  password: <%= ENV["APPOINTMENT_CAPSTONE_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

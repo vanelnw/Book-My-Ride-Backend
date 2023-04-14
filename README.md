@@ -1,10 +1,10 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Car Rental App ](#-car-rental-app-)
+- [📖 Car Rental APP ](#-car-rental-ap-)
   - [Kanban Board](#kanban-board)
   - [API Documentation](#api-documentation)
-  - [Backend](#backend)
+  - [Backend](#frontend)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -25,11 +25,11 @@
 
 # 📖 Car Rental App <a name="about-project"></a>
 
-**Car Rental App** is a car rental application that provides users with the ability to create an account, log in, and reserve a car for a designated time frame. It also allows users to browse through all available vehicles and view specific cars. Additionally, users can check their own booking history and view all reservations made by them.
+**Car Rental App** is a an application that provides users with the ability to create an account, log in, and reserve a car for a designated time frame. It also allows users to browse through all available vehicles and view specific cars. Additionally, users can check their own booking history and view all reservations made by them.
 
 ## Kanban Board <a name="kanban-board"></a>
 
-Collaboration team is made of 5 members:
+Collaboration team is made of 3 members:
 
 - Abeera Tahir
 - Vanel Nwaba
@@ -37,22 +37,24 @@ Collaboration team is made of 5 members:
 - Khomotso Mkansi
 - Zia Bakhteyari
 
-### Initial State of Kanban:
-![kanban](https://user-images.githubusercontent.com/38879488/228954839-ecab1c29-7bad-4338-8b62-68f996f6ce7d.png)
-
-[Kanban Board Link](https://github.com/users/vanelnw/projects/4)
-
 ## API Documentation <a name="api-documentation"></a>
 
 [Link to API Documentation](https://documenter.getpostman.com/view/24548009/2s93XsYS33)
 
 ## Backend <a name="backend"></a>
 
-This is the backend for the car Rental Application. The frontend is made with react and can be found [here] (https://github.com/vanelnw/appointment-capstone-frontend.git)
+The frontend was made with react and can be found [here] (https://github.com/vanelnw/appointment-capstone-frontend.git)
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+</details>
 
 <details>
   <summary>Server</summary>
