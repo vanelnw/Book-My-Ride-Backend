@@ -1,5 +1,6 @@
 require_relative './json_web_token'
-
+module Api
+  module V1
 class Api::V1::ApplicationController < ActionController::API
   before_action :authenticate_request
   before_action :set_default_format
@@ -16,4 +17,6 @@ class Api::V1::ApplicationController < ActionController::API
     decoded = JsonWebToken.jwt_decode(header)
     @current_user = User.find(decoded[:user_id])
   end
+end
+end
 end
