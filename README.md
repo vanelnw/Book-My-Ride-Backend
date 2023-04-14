@@ -38,6 +38,7 @@ Collaboration team is made of 5 members:
 - Zia Bakhteyari
 
 ### Initial State of Kanban:
+
 ![kanban](https://user-images.githubusercontent.com/38879488/228954839-ecab1c29-7bad-4338-8b62-68f996f6ce7d.png)
 
 [Kanban Board Link](https://github.com/users/vanelnw/projects/4)
@@ -77,7 +78,7 @@ The frontend is made with react and can be found [here] (https://github.com/vane
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://rentyourcar.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
