@@ -1,4 +1,3 @@
-require_relative 'json_web_token'
 
 class Api::V1::AuthenticationController < Api::V1::ApplicationController
   skip_before_action :authenticate_request
