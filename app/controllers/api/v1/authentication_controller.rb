@@ -4,7 +4,7 @@ class Api::V1::AuthenticationController < Api::V1::ApplicationController
   def login
     @user = User.find_by_email(params[:email])
     if @user&.authenticate(params[:password])
-      token = JsonWebToken.jwt_encode(user_id: @user.id)
+      token = Api::V1::JsonWebToken.jwt_encode(user_id: @user.id)
       render json: { user: @user, token:, message: 'Logged in successfully!' }, status: :ok
     else
       render json: { token: 'unauthorized', message: 'Invalid email or password!' }, status: :unauthorized
@@ -27,7 +27,7 @@ class Api::V1::AuthenticationController < Api::V1::ApplicationController
       @user.role = 'admin' if @user.email == 'admin@gmail.com'
 
       if @user.save
-        token = JsonWebToken.jwt_encode(user_id: @user.id)
+        token = Api::V1::JsonWebToken.jwt_encode(user_id: @user.id)
         render json: { user: @user, token:, message: 'Registered successfully!' }, status: :created
       else
         render json: { message: @user.errors.full_messages.join(', ') }, status: :unprocessable_entity

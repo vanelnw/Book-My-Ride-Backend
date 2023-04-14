@@ -11,6 +11,8 @@ module AppointmentCapstoneBackend
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.autoload_paths += %W(#{config.root}/app/controllers/api/v1)
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
