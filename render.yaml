@@ -1,7 +1,7 @@
 databases:
   - name: postgres
-    plan: free
-    ipAllowList: []
+    databaseName: postgres_7cxr
+    user: postgres_7cxr_user
 
 services:
   - type: web
