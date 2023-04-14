@@ -1,12 +1,12 @@
+@@ -0,0 +1,18 @@
 databases:
   - name: postgres
-    plan: free
-    ipAllowList: []
+    databaseName: postgres
+    user: postgres
 
 services:
   - type: web
     name: rails
-    plan: free
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
@@ -17,8 +17,3 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemoryPolicy: noeviction

@@ -4,7 +4,7 @@
 - [📖 Car Rental App ](#-car-rental-app-)
   - [Kanban Board](#kanban-board)
   - [API Documentation](#api-documentation)
-  - [Backend](#backend)
+  - [Frontend](#frontend)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -46,9 +46,9 @@ Collaboration team is made of 5 members:
 
 [Link to API Documentation](https://documenter.getpostman.com/view/24548009/2s93XsYS33)
 
-## Backend <a name="backend"></a>
+## Frontend <a name="frontend"></a>
 
-This is the backend for the car Rental Application. The frontend is made with react and can be found [here] (https://github.com/vanelnw/appointment-capstone-frontend.git)
+The frontend is made with react and can be found [here] (https://github.com/vanelnw/appointment-capstone-frontend.git)
 
 ## 🛠 Built With <a name="built-with"></a>
 
