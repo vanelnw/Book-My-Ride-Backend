@@ -1,4 +1,5 @@
-require_relative './json_web_token'
+require_relative '../../../../lib/json_web_token'
+# require "#{Rails.root}/app/lib/json_web_token"
 
 class Api::V1::ApplicationController < ActionController::API
   before_action :authenticate_request
