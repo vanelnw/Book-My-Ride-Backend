@@ -1,7 +1,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Car Rental App ](#-car-rental-app-)
+- [📖 Book my Ride App ](#-car-rental-app-)
   - [Kanban Board](#kanban-board)
   - [API Documentation](#api-documentation)
   - [Frontend](#frontend)
@@ -23,9 +23,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 📖 Car Rental App <a name="about-project"></a>
+# 📖 Book my Ride App <a name="about-project"></a>
 
-**Car Rental App** is a car rental application that provides users with the ability to create an account, log in, and reserve a car for a designated time frame. It also allows users to browse through all available vehicles and view specific cars. Additionally, users can check their own booking history and view all reservations made by them.
+**Book my Ride App** is a car rental application that provides users with the ability to create an account, log in, and reserve a car for a designated time frame. It also allows users to browse through all available vehicles and view specific cars. Additionally, users can check their own booking history and view all reservations made by them.
 
 ## Kanban Board <a name="kanban-board"></a>
 
@@ -156,8 +156,8 @@ To run tests, run the following command:
 👤 **Vanel Nwaba**
 
 - GitHub: [@vanelnw](https://github.com/vanelnw)
-- LinkedIn: [Vanel Nwaba](#)
-- Twitter: [@raymondolisa01](https://www.linkedin.com/in/va-nw/)
+- LinkedIn: [Vanel Nwaba](https://www.linkedin.com/in/va-nw/)
+- Twitter: [@vanelnw](#)
 
 👤 **Ezema Anthony Sunday**
 
