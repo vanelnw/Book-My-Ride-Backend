@@ -1,5 +1,5 @@
 require 'jwt'
-class Api::V1::JsonWebToken < ActiveSupport::Concern
+class Api::V1::JsonWebToken 
   # extend ActiveSupport::Concern
   SECRET_KEY = Rails.application.secret_key_base
 
