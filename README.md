@@ -197,8 +197,6 @@ If you like this project consider giving it a star ⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
 Special thank to [Murat Korkmaz](https://www.behance.net/muratk) for providing the design guidelines.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
