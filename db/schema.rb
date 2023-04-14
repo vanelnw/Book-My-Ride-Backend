@@ -17,11 +17,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_024928) do
   create_table "cars", force: :cascade do |t|
     t.string "make"
     t.string "model"
-    t.string "image"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.string "image"
     t.text "description"
     t.integer "daily_rate"
     t.index ["user_id"], name: "index_cars_on_user_id"
