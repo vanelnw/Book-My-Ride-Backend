@@ -24,6 +24,7 @@ default: &default
   port: 5432
   username: postgres
   password: 1234
+
 development:
   <<: *default
   database: Appointment_Capstone_Backend_development
